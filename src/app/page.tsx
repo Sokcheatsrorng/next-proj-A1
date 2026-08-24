@@ -1,7 +1,8 @@
+import AnimatedListDemo from "@/components/shadcn-space/animated-list/animated-list-01";
 
 
 export default function Home() {
   return (
-   <h1>This is my first nextjs project</h1>
+  <AnimatedListDemo/>
   );
 }
