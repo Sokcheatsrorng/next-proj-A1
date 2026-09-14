@@ -15,7 +15,9 @@ import { Metadata } from "next";
 // };
 
 export default function ProductPage() {
-  const response =  fetch('https://fakestoreapi.com/products').then(products => products.json())
+  const response =  fetch('https://fakestoreapi.com/products').
+  then(products => products.json()).
+  catch((error) => console.log(error))
 
   return (
     
