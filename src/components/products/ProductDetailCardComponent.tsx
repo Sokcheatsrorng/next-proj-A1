@@ -70,7 +70,6 @@ const ProductDetail = ({ productDetailInterface }:ProductDetailIntefaces )=> {
               Buy Now
             </Button>
 
-
             <ProductInfo
               info={[
                 {
