@@ -9,12 +9,14 @@ interface productInterfaceList {
 }
 
 export default function ProductCardListComponent({productFromApi}:productInterfaceList) {
-  const products = use(productFromApi)
+
+  const products = use(productFromApi);
+  console.log(`==> products`, products)
 
   return (
     <div className="container grid grid-cols-4 gap-8 ">
       {
-        products?.map(({ image, title, price, description, id }) => (
+        products?.map(({ image, title, price, description, id }:ProductType) => (
           <Link key={id} href={`/products/${id}`}>
            <ProductCardComponent
             id={id}
