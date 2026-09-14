@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   }
 };
 
-export default function page() {
+export default function ProductPage() {
   const response =  fetch('https://fakestoreapi.com/products').then(products => products.json())
 
   return (
-    <div>
+    
      <ProductCardListComponent productFromApi={response}/>
-    </div>
+    
   )
 }
