@@ -1,7 +1,7 @@
 import { ProductDetail } from "@/components/products/ProductDetailCardComponent";
 
 
-export default async function page({
+export default async function ProductDetailPage({
   params
 }: {
   params: Promise<{id: string | number}>
