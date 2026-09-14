@@ -2,6 +2,7 @@
 import ProductCardListComponent from "@/components/products/ProductCardListComponent";
 import { Metadata } from "next";
 
+
 // static metadata for about page
 export const metadata: Metadata = {
   title: 'Products',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 async function getData(){
-   const res = await fetch('https://fakestoreapi.com/products');
+   const res = await fetch(`${process.env.FAKE_STORE_API}/products`);
    console.log(`Response data: `, res)
    
    if(res.ok){
@@ -28,8 +29,9 @@ async function getData(){
 }
 
 export default  function ProductPage() {
+
   const response = getData();
-  console.log(`==> Fetch Api: `, response)
+
   return (
     
      <ProductCardListComponent productFromApi={response}/>
