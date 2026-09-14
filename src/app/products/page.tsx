@@ -3,22 +3,33 @@ import ProductCardListComponent from "@/components/products/ProductCardListCompo
 import { Metadata } from "next";
 
 // static metadata for about page
-// export const metadata: Metadata = {
-//   title: 'Products',
-//   description: "This is product page which list down many products from the website.",
-//   keywords: 'Product, Clothes for men, Clothes for women, Clothes for kids, E-Commerce website.',
-//   openGraph:{
-//      title:'Products',
-//      description: 'This is product page which list down many products from the website.',
-//      images: ['A1_Thumbnail_project.png']
-//   }
-// };
+export const metadata: Metadata = {
+  title: 'Products',
+  description: "This is product page which list down many products from the website.",
+  keywords: 'Product, Clothes for men, Clothes for women, Clothes for kids, E-Commerce website.',
+  openGraph:{
+     title:'Products',
+     description: 'This is product page which list down many products from the website.',
+     images: ['A1_Thumbnail_project.png']
+  }
+};
 
-export default function ProductPage() {
-  const response =  fetch('https://fakestoreapi.com/products').
-  then(products => products.json()).
-  catch((error) => console.log(error))
+async function getData(){
+   const res = await fetch('https://fakestoreapi.com/products');
+   console.log(`Response data: `, res)
+   
+   if(res.ok){
+      const data = await res.json();
+      console.log(`Data from API: `, data)
+      return data;
+   }else{
+      console.log('Failed to fetch')
+   }
+}
 
+export default  function ProductPage() {
+  const response = getData();
+  console.log(`==> Fetch Api: `, response)
   return (
     
      <ProductCardListComponent productFromApi={response}/>
